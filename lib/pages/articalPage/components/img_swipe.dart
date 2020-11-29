@@ -80,6 +80,7 @@ class _ImgSwiperState extends State<ImgSwiper> {
             actions: <Widget>[
               FlatButton(
                 onPressed: () {
+                  Clipboard.setData(ClipboardData(text: widget.articalShare));
                   _openQQ();
                   Navigator.pop(context);
                 },

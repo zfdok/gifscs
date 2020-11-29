@@ -11,7 +11,7 @@ import 'pages/movie/MoviePage.dart';
 import 'pages/giftPage/GiftPage.dart';
 import 'pages/myPage/MyPage.dart';
 
-String version = "V0.0.1";
+String version = "V1.0.1";
 
 //xattr -rc .
 //flutter clean
@@ -42,7 +42,7 @@ class MainWidget extends StatefulWidget {
 class _MainWidgetState extends State<MainWidget> {
   int _currentIndex = 0; //buttombar索引
   String _updateURL; //升级用url
-  String movieURL = 'https://m.baidu.com'; //影视url
+  String movieURL = 'https://gifcheshen.com'; //影视url
   final ValueNotifier<bool> versionRight =
       ValueNotifier<bool>(true); //用于监听版本是否一致的 值监听器
   //获取用户ip并记录在登录记录表中

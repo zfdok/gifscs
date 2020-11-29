@@ -35,7 +35,7 @@ class _GiftPageState extends State<GiftPage> {
       child: ListView(
           children: List.generate(giftList.length, (index) {
         return SizedBox(
-          height: 550.w,
+          // height: 450.w,
           child: InkWell(
             onTap: () => launch(giftList[index]['url']),
             child: Padding(

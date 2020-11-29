@@ -17,6 +17,7 @@ class _ArticalPageState extends State<ArticalPage> {
   String articalTitle = "";
   String articalDate = "";
   String articalRead = "";
+  String articalShare = "";
 
   _getData() async {
     try {
@@ -27,7 +28,18 @@ class _ArticalPageState extends State<ArticalPage> {
         articalTitle = response.data['title'];
         articalDate = response.data['created_time'];
         articalRead = response.data['readcount'].toString();
-        print(datas);
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  _getArticalShare() async {
+    try {
+      Response response = await Dio().get("http://193.149.161.65:3000/share");
+      setState(() {
+        articalShare = response.data;
+        print(articalShare);
       });
     } catch (e) {
       print(e);
@@ -37,6 +49,7 @@ class _ArticalPageState extends State<ArticalPage> {
   @override
   void initState() {
     _getData();
+    _getArticalShare();
     super.initState();
   }
 
@@ -53,7 +66,7 @@ class _ArticalPageState extends State<ArticalPage> {
                 articalTitle: articalTitle,
                 articalDate: articalDate,
                 articalRead: articalRead),
-            ImgSwiper(datas: datas)
+            ImgSwiper(datas: datas, articalShare: articalShare)
           ],
         ),
       ),

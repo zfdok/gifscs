@@ -1,14 +1,18 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ImgSwiper extends StatefulWidget {
   final List<dynamic> datas;
-  ImgSwiper({Key key, @required this.datas}) : super(key: key);
+  final String articalShare;
+  ImgSwiper({Key key, @required this.datas, @required this.articalShare})
+      : super(key: key);
   @override
   _ImgSwiperState createState() => _ImgSwiperState();
 }
@@ -37,6 +41,62 @@ class _ImgSwiperState extends State<ImgSwiper> {
       });
     } catch (err) {
       print(err);
+    }
+  }
+
+  void _showShareDialog() {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('阅读次数已达上限'),
+            content: Container(
+              height: 1400.w,
+              child: Column(
+                children: [
+                  Text(
+                    "抱歉打断您,阅读次数已达上限\r\n您的分享真的非常重要",
+                    style: TextStyle(fontSize: 65.w, color: Colors.indigo),
+                  ),
+                  Container(
+                    child: Image.network(
+                        "https://www.picnew.org/images/2020/11/28/-1534f1.png"),
+                  ),
+                  Text(
+                    "\r\n分享到qq群增加您到阅读次数\r\n\r\n",
+                    style: TextStyle(color: Colors.redAccent),
+                  ),
+                  Container(
+                    child: Text(
+                        "👉您的专属链接已自动复制👈\r\n⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️\r\n"),
+                  ),
+                  Container(
+                    child: Text(widget.articalShare),
+                  )
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  _openQQ();
+                  Navigator.pop(context);
+                },
+                child: Text('自动复制并分享到qq群'),
+              ),
+            ],
+          );
+        });
+  }
+
+  void _openQQ() async {
+    const url = 'mqq://';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      Scaffold.of(context)
+          .showSnackBar(SnackBar(content: Text('Could not launch $url')));
     }
   }
 
@@ -118,6 +178,11 @@ class _ImgSwiperState extends State<ImgSwiper> {
                             height: 100,
                             child: ListTile(
                               onTap: () {
+                                Random _random = new Random();
+                                print(_random.nextInt(100));
+                                if (_random.nextInt(100) < 11) {
+                                  _showShareDialog();
+                                }
                                 setState(() {
                                   showSecretFlag = true;
                                 });

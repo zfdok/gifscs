@@ -14,6 +14,7 @@ import 'pages/myPage/MyPage.dart';
 String version = "V0.0.1";
 
 //xattr -rc .
+//flutter clean
 //flutter build apk --target-platform android-arm
 void main() {
   runApp(MyApp());

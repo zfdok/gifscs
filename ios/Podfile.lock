@@ -1,14 +1,5 @@
 PODS:
   - Flutter (1.0.0)
-  - UMCAnalytics (6.1.0):
-    - UMCCommon
-  - UMCCommon (2.1.4)
-  - UMCCommonLog (2.0.0)
-  - umeng_sdk (0.0.1):
-    - Flutter
-    - UMCAnalytics (= 6.1.0)
-    - UMCCommon (= 2.1.4)
-    - UMCCommonLog
   - url_launcher (0.0.1):
     - Flutter
   - webview_flutter (0.0.1):
@@ -16,21 +7,12 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - umeng_sdk (from `.symlinks/plugins/umeng_sdk/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
   - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
-
-SPEC REPOS:
-  trunk:
-    - UMCAnalytics
-    - UMCCommon
-    - UMCCommonLog
 
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  umeng_sdk:
-    :path: ".symlinks/plugins/umeng_sdk/ios"
   url_launcher:
     :path: ".symlinks/plugins/url_launcher/ios"
   webview_flutter:
@@ -38,10 +20,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  UMCAnalytics: 3503f179f7af932b30af9ac161ac11fb48fa72b6
-  UMCCommon: b0703b0053323f598e01670ea702b8eb1e66e611
-  UMCCommonLog: 9b7ddde5d14a52fc1986ba5ac3121b8b2f433638
-  umeng_sdk: 8a8ec64b50bbf5e6bdc0bdae73a5c330051312a8
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
   webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
 

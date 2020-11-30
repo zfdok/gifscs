@@ -35,7 +35,7 @@ class MyPage extends StatelessWidget {
                           width: 284.w,
                           child: CircleAvatar(
                             backgroundImage: NetworkImage(
-                                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1605957054863&di=9d7cd1cfd01b5c35fbc50e58ef19c0c7&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20190129%2F8478c326fa174158859b9ac093e36938.jpeg"),
+                                "https://www.picnew.org/images/2020/11/28/16670204-d237cafe27351ca7.jpg"),
                           ),
                         ),
                       ),
@@ -68,9 +68,9 @@ class MyPage extends StatelessWidget {
                       child: Card(
                         elevation: 10.w,
                         child: ListTile(
-                          leading: Icon(Icons.ac_unit_sharp),
-                          title: Text("获取最新版本"),
-                          onTap: () => launch("https://github.com/"),
+                          leading: Icon(Icons.smart_button),
+                          title: Text("请牢记:网址就是“gif车神”😂😂😂"),
+                          onTap: () {},
                         ),
                       ),
                     ),
@@ -80,6 +80,18 @@ class MyPage extends StatelessWidget {
                         elevation: 10.w,
                         child: ListTile(
                           leading: Icon(Icons.ac_unit_sharp),
+                          title: Text("获取最新版本"),
+                          onTap: () => launch(
+                              "https://github.com/oliverquinn2021/gifsc_back"),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(30.w, 20.w, 30.w, 0),
+                      child: Card(
+                        elevation: 10.w,
+                        child: ListTile(
+                          leading: Icon(Icons.help),
                           title: Text("获取帮助"),
                           onTap: () => Scaffold.of(context).showSnackBar(
                               SnackBar(
@@ -93,7 +105,7 @@ class MyPage extends StatelessWidget {
                       child: Card(
                         elevation: 10.w,
                         child: ListTile(
-                          leading: Icon(Icons.ac_unit_sharp),
+                          leading: Icon(Icons.deck_rounded),
                           title: Text("关于本app"),
                           onTap: () => myAboutDialog(context),
                         ),
@@ -104,7 +116,7 @@ class MyPage extends StatelessWidget {
                       child: Card(
                         elevation: 10.w,
                         child: ListTile(
-                          leading: Icon(Icons.ac_unit_sharp),
+                          leading: Icon(Icons.mail),
                           title: Text("联系作者"),
                           onTap: () {
                             showDialog(
@@ -122,7 +134,7 @@ class MyPage extends StatelessWidget {
                                           Scaffold.of(context).showSnackBar(
                                               SnackBar(
                                                   content: Text(
-                                                      "已复制神秘代码:${value.text} 到剪贴板")));
+                                                      "已复制联系方式:${value.text} 到剪贴板")));
                                           Navigator.of(context).pop();
                                         });
                                       },

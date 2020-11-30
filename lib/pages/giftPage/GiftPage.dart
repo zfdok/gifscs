@@ -12,7 +12,7 @@ class _GiftPageState extends State<GiftPage> {
   List giftList = [];
 
   void _getGiftList() async {
-    String url = "http://193.149.161.65:3000/gift";
+    String url = "http://gifcheshen.com:3000/gift";
     Response resp = await Dio().get(url);
     setState(() {
       giftList = resp.data['data'];

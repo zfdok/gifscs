@@ -22,7 +22,7 @@ class _ArticalPageState extends State<ArticalPage> {
   _getData() async {
     try {
       Response response = await Dio().get(
-          "http://193.149.161.65:3000/sql/get_an_artical?id=${widget.articalId}");
+          "http://gifcheshen.com:3000/sql/get_an_artical?id=${widget.articalId}");
       setState(() {
         datas = response.data['content']['data'];
         articalTitle = response.data['title'];
@@ -36,7 +36,7 @@ class _ArticalPageState extends State<ArticalPage> {
 
   _getArticalShare() async {
     try {
-      Response response = await Dio().get("http://193.149.161.65:3000/share");
+      Response response = await Dio().get("http://gifcheshen.com:3000/share");
       setState(() {
         articalShare = response.data;
         print(articalShare);

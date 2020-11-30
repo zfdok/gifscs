@@ -42,12 +42,12 @@ class MainWidget extends StatefulWidget {
 class _MainWidgetState extends State<MainWidget> {
   int _currentIndex = 0; //buttombar索引
   String _updateURL; //升级用url
-  String movieURL = 'https://gifcheshen.com'; //影视url
+  String movieURL = 'http://gifcheshen.com'; //影视url
   final ValueNotifier<bool> versionRight =
       ValueNotifier<bool>(true); //用于监听版本是否一致的 值监听器
   //获取用户ip并记录在登录记录表中
   void _accessAndRec() async {
-    String url = "http://193.149.161.65:3000/login";
+    String url = "http://gifcheshen.com:3000/login";
     await Dio().get(url);
   }
 
@@ -148,7 +148,7 @@ class _MainWidgetState extends State<MainWidget> {
 
 //获取版本
   Future _getVerSion() async {
-    String url = "http://193.149.161.65:3000/login/version";
+    String url = "http://gifcheshen.com:3000/login/version";
     Response rep = await Dio().get(url);
     return rep;
   }

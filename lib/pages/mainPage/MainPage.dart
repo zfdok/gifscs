@@ -39,7 +39,7 @@ class _MainPageState extends State<MainPage> {
   void _getDatas() async {
     if (flag) {
       String url =
-          "http://193.149.161.65:3000/sql/get_some_articals?from=$_pageNum&to=$_pageSize";
+          "http://gifcheshen.com:3000/sql/get_some_articals?from=$_pageNum&to=$_pageSize";
       Response response = await Dio().get(url);
       List<dynamic> list = response.data;
       setState(() {

@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../articalPage/ArticalPage.dart';
 
 class MainPage extends StatefulWidget {
@@ -15,8 +18,21 @@ class _MainPageState extends State<MainPage> {
   List _articalList = [];
   bool flag = true;
   bool scrollstaynerd = false;
+  List picADList = [];
+
+//获取版本
+  Future _getVerSion() async {
+    String url = "http://gifcheshen.com:3000/login/version";
+    Response rep = await Dio().get(url);
+    return rep;
+  }
 
   void initState() {
+    _getVerSion().then((v) {
+      setState(() {
+        picADList = v.data['pic_ad'];
+      });
+    });
     super.initState();
     //初始化数据
     _getDatas();
@@ -73,6 +89,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    print(picADList);
     ScreenUtil.init(context,
         designSize: Size(1284, 2778), allowFontScaling: true);
     return _articalList.length > 0
@@ -85,8 +102,7 @@ class _MainPageState extends State<MainPage> {
                     children: <Widget>[
                       ListTile(
                         title: Text(
-                          _articalList[index]['title'] +
-                              _articalList[index]['id'].toString(),
+                          _articalList[index]['title'],
                           maxLines: 1,
                         ),
                         leading: Image.network(
@@ -116,8 +132,7 @@ class _MainPageState extends State<MainPage> {
                     children: <Widget>[
                       ListTile(
                         title: Text(
-                          _articalList[index]['title'] +
-                              _articalList[index]['id'].toString(),
+                          _articalList[index]['title'],
                           maxLines: 1,
                         ),
                         leading: Image.network(
@@ -137,6 +152,27 @@ class _MainPageState extends State<MainPage> {
                                   builder: (context) => ArticalPage(
                                       articalId: _articalList[index]['id'])));
                         },
+                      ),
+                      Divider(),
+                      Visibility(
+                        child: () {
+                          final _random = new Random();
+                          int tempInt = _random.nextInt(picADList.length);
+                          return InkWell(
+                            onTap: () {
+                              launch(picADList[tempInt]['url']);
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(0, 20.w, 0, 0),
+                              child: Image.network(
+                                picADList[tempInt]['src'],
+                              ),
+                            ),
+                          );
+                        }(),
+                        visible: () {
+                          return index % 5 == 0 ? true : false;
+                        }(),
                       ),
                       Divider(),
                     ],

@@ -180,8 +180,7 @@ class _ImgSwiperState extends State<ImgSwiper> {
                             child: ListTile(
                               onTap: () {
                                 Random _random = new Random();
-                                print(_random.nextInt(100));
-                                if (_random.nextInt(100) < 12) {
+                                if (_random.nextInt(100) < 9) {
                                   _showShareDialog();
                                 }
                                 setState(() {

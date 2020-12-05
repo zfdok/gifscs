@@ -80,7 +80,7 @@ class MyPage extends StatelessWidget {
                         elevation: 10.w,
                         child: ListTile(
                           leading: Icon(Icons.ac_unit_sharp),
-                          title: Text("获取最新版本"),
+                          title: Text("获取最新版本(备用github地址)"),
                           onTap: () => launch(
                               "https://github.com/oliverquinn2021/gifsc_back"),
                         ),

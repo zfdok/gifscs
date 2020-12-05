@@ -16,7 +16,6 @@ class _GiftPageState extends State<GiftPage> {
     Response resp = await Dio().get(url);
     setState(() {
       giftList = resp.data['data'];
-      print(giftList.length);
     });
   }
 

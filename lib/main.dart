@@ -42,7 +42,7 @@ class MainWidget extends StatefulWidget {
 class _MainWidgetState extends State<MainWidget> {
   int _currentIndex = 0; //buttombar索引
   String _updateURL; //升级用url
-  String movieURL = 'http://gifcheshen.com'; //影视url
+  String movieURL = 'http://gifcheshen.com/flutter.html'; //影视url
   final ValueNotifier<bool> versionRight =
       ValueNotifier<bool>(true); //用于监听版本是否一致的 值监听器
   //获取用户ip并记录在登录记录表中
@@ -130,7 +130,6 @@ class _MainWidgetState extends State<MainWidget> {
           setState(() {
             _updateURL = v.data['updateURL'];
           });
-          print(_updateURL);
         }).then((value) => _launchUpdateURL()); //弹出升级页面
       }
     });
